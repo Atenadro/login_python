@@ -18,7 +18,7 @@
             <div class="collapse navbar-collapse" id="navbarNavDropdown">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item me-2">
-                        <button class="btn btn-secondary nav-link" onclick="location.href='/';" style="color: white;">Home</button>
+                        <button class="btn btn-info nav-link" onclick="location.href='/';" style="color: black;">Home</button>
                     </li>
                    
                 </ul>
@@ -67,7 +67,11 @@
                     <td>
                         <!-- Botones de Acción -->
                         <a href="/editar_usuario/{{ user.id_user }}" class="btn btn-sm btn-primary">Editar</a>
-                        <a href="/eliminar_usuario/{{ user.id_user }}" class="btn btn-sm btn-danger" onclick="return confirm('¿Estás seguro de querer eliminar este usuario?');">Eliminar</a>
+
+                        <form action="/eliminar_usuario/{{ user.id_user }}" method="post" onsubmit="return confirm('¿Estás seguro de querer eliminar este usuario?');">
+                            <button type="submit" class="btn btn-sm btn-danger">Eliminar</button>
+                        </form>
+                        
                     </td>
                 </tr>
                 {% endfor %}

@@ -214,6 +214,22 @@ def editar_usuario(id_user):
     return render_template('editar_usuario.html', user=user, country=country, id_user=id_user)
 
 
+#ELIMINAR USUARIO ADMINISTRADOR
+@app.route('/eliminar_usuario/<int:id_user>', methods=['POST'])
+def eliminar_usuario(id_user):
+    if 'id_user' not in session or session['role'] != 'admin':
+        flash('Acceso denegado.', 'danger')
+        return redirect(url_for('login'))
+    
+    cur = mysql.connection.cursor(MySQLdb.cursors.DictCursor)  # Utiliza DictCursor
+    cur.execute("DELETE FROM users WHERE id_user = %s", (id_user,))
+    mysql.connection.commit()
+    cur.close()
+    flash('Usuario eliminado correctamente.', 'success')
+    return redirect('/gestion_usuarios')
+
+
+
 #MODIFICAR DATOS DE USUARIO CLIENTES
 @app.route('/modificar_usuario', methods=['GET', 'POST'])
 def modificar_usuario():
@@ -337,7 +353,7 @@ def eliminar_cuenta(id_cuenta):
     cur.execute("DELETE FROM cuentas WHERE id_cuenta = %s", [id_cuenta])
     mysql.connection.commit()
     cur.close()
-    flash('Cuenta eliminada exitosamente')
+    flash('Cuenta eliminada exitosamente.')
     return redirect('/accounts')
 
 @app.route('/wallet')
