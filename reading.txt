@@ -1,0 +1,45 @@
+Resumen del Código Actual
+Configuración Inicial: Configuras Flask, MySQL y estableces una clave secreta y un tiempo de vida de sesión permanente.
+
+Funciones Útiles:
+
+Validación de email mediante una expresión regular.
+Obtención de datos del usuario y lista de países desde la base de datos.
+Rutas y Funcionalidades:
+
+Home (/): Muestra la página principal.
+Registro (/register): Permite a los nuevos usuarios registrarse, incluyendo validaciones de email y verificación de que el usuario no exista previamente.
+Login (/login): Autenticación de usuarios con verificación de contraseña.
+Logout (/logout): Cierra la sesión del usuario actual.
+Dashboard (/dashboard): Un panel donde probablemente se mostrarán datos relevantes al usuario.
+Modificar Usuario (/modificar_usuario): Permite a los usuarios actualizar sus datos.
+Gestión de Cuentas (/accounts): Permite a los usuarios ver y agregar nuevas cuentas.
+Editar Cuentas (/editar_cuenta/<int:id_cuenta>): Permite modificar los detalles de una cuenta existente.
+Eliminar Cuenta (/eliminar_cuenta/<int:id_cuenta>): Elimina una cuenta específica.
+Recomendaciones para Futuras Funcionalidades
+Implementación de Monedero Electrónico:
+
+Agregar funcionalidades para realizar y recibir pagos.
+Implementar un sistema para agregar y retirar fondos.
+Integrar un sistema de historial de transacciones para que los usuarios puedan ver sus actividades pasadas.
+Manejo de Varios Tipos de Usuarios:
+
+Introducir roles de usuario (por ejemplo, administrador, usuario estándar, comerciante) y gestionar los permisos asociados a cada rol.
+Implementar vistas y funcionalidades diferenciadas según el tipo de usuario.
+Seguridad:
+
+Implementar medidas de seguridad adicionales como la autenticación de dos factores (2FA).
+Asegurar que todas las contraseñas y datos sensibles estén adecuadamente cifrados y protegidos.
+Implementar límites de intentos de inicio de sesión para prevenir ataques de fuerza bruta.
+Interfaz de Usuario y Experiencia:
+
+Mejorar las interfaces de usuario utilizando AJAX para una experiencia más fluida y dinámica.
+Implementar notificaciones en tiempo real para informar a los usuarios sobre cambios o actualizaciones importantes.
+Funcionalidades Avanzadas:
+
+Integrar APIs de terceros para funcionalidades adicionales como verificación de identidad, análisis de transacciones, o soporte para criptomonedas.
+Desarrollar un sistema de reportes y análisis para que los usuarios puedan obtener insights sobre sus hábitos de gasto o recibir recomendaciones personalizadas.
+Pruebas y Mantenimiento:
+
+Implementar pruebas automáticas para asegurar la estabilidad de las funcionalidades críticas a medida que la aplicación crece.
+Establecer un proceso de revisión de código y pruebas de penetración para mantener la aplicación segura.
